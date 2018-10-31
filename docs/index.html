@@ -4,8 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="Materials for workshop w/ @wolfgangschoeffel at Swiss Interactive Media Design Day 2018" />
     <title>Workshop Materials</title>
   </head>
   <body>
+    <h1>Workshop Materials</h1>
+    <h2>Scripts</h2>
+    <ul>
+      <li>
+        Maximize heading
+        <textarea>
+(() => {
+  let h1 = document.querySelector('h1');
+  h1.style.display = 'block';
+  h1.style.position = 'fixed';
+  h1.style.top = '50vh';
+  h1.style.left = '50vw';
+  h1.style.transform = 'translate(-50%, -50%)';
+  h1.style.fontSize = '10rem';
+  h1.style.color = 'mediumvioletred';
+})();
+        </textarea>
+      </li>
+      <li>
+        Follow mouse
+        <textarea>
+function followMouse(element) {
+  element.style.display = 'block';
+  element.style.position = 'fixed';
+  let { width, height } = element.getBoundingClientRect();
+  window.addEventListener('mousemove', ({ clientX, clientY }) => {
+    element.style.left = (clientX - width / 2) + 'px';
+    element.style.top = (clientY - height / 2) + 'px';
+  });
+}
+        </textarea>
+      </li>
+    </ul>
+    <footer>&copy; 2018 Emanuel Tannert, Wolfgang Schöffel</footer>
   </body>
 </html>

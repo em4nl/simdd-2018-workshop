@@ -2,7 +2,10 @@
   "name": "simdd-2018-workshop",
   "version": "0.1.0",
   "description": "Materials for workshop w/ @wolfgangschoeffel at Swiss Interactive Media Design Day 2018",
-  "scripts": {},
+  "scripts": {
+    "devserver": "eleventy --serve",
+    "build": "eleventy"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/em4nl/simdd-2018-workshop.git"
