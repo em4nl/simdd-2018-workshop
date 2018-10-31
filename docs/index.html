@@ -43,5 +43,51 @@ function followMouse(element) {
       </li>
     </ul>
     <footer>&copy; 2018 Emanuel Tannert, Wolfgang Schöffel</footer>
+    <script>
+      function get(url, callback) {
+        var request = new XMLHttpRequest();
+        request.open('GET', url, true);
+        request.onload = function() {
+          if (request.status !== 200) {
+            callback(request.status);
+          } else {
+            callback(null, request.responseText);
+          }
+        };
+        request.onerror = function() {
+          callback(1);
+        };
+        request.send();
+      }
+      function tryLoadNew() {
+        var isCanceled = false;
+        get('https://em4nl.github.io/simdd-2018-workshop/', function(error, html) {
+          if (!isCanceled && !error) {
+            var scriptsList = document.querySelector('ul');
+            var oldScripts = scriptsList.querySelectorAll('li');
+            var i;
+            for (i = 0; i < oldScripts.length; i++) {
+              oldScripts[i].parentNode.removeChild(oldScripts[i]);
+            }
+            var tmp = document.createElement('DIV');
+            tmp.innerHTML = html;
+            var newScripts = tmp.querySelectorAll('li');
+            for (i = 0; i < newScripts.length; i++) {
+              scriptsList.appendChild(newScripts[i]);
+            }
+          }
+        });
+        return function() {
+          isCanceled = true;
+        };
+      }
+      var cancelLastTry = function() {};
+      function refresh() {
+        cancelLastTry();
+        cancelLastTry = tryLoadNew();
+        setTimeout(refresh, 20000);
+      }
+      setTimeout(refresh, 20000);
+    </script>
   </body>
 </html>
