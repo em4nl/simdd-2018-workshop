@@ -1,0 +1,22 @@
+{
+  "name": "simdd-2018-workshop",
+  "version": "0.1.0",
+  "description": "Materials for workshop w/ @wolfgangschoeffel at Swiss Interactive Media Design Day 2018",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/em4nl/simdd-2018-workshop.git"
+  },
+  "author": "Emanuel Tannert <post@etannert.de>",
+  "contributors": [
+    "Wolfgang Schöffel <wolfgang@unfun.de>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/em4nl/simdd-2018-workshop/issues"
+  },
+  "homepage": "https://em4nl.github.io/simdd-2018-workshop",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.5.4"
+  }
+}
