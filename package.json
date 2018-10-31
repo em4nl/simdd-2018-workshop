@@ -21,5 +21,8 @@
   "homepage": "https://em4nl.github.io/simdd-2018-workshop",
   "devDependencies": {
     "@11ty/eleventy": "^0.5.4"
+  },
+  "engines": {
+    "node": "10.12.0"
   }
 }
