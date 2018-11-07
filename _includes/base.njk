@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="{{ pkg.description }}" />
+    <title>Button Design Workshop</title>
+    <style>
+      main ul li img {
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Button Design Workshop</h1>
+    </header>
+    <main>
+      {{ content|safe }}
+    </main>
+    <footer>&copy; 2018 Emanuel Tannert, Wolfgang Schöffel</footer>
+  </body>
+</html>
