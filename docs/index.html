@@ -6,88 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="description" content="Materials for workshop w/ @wolfgangschoeffel at Swiss Interactive Media Design Day 2018" />
-    <title>Workshop Materials</title>
+    <title>Button Design Workshop</title>
+    <style>
+      main ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      main ul li img {
+        max-width: 100%;
+      }
+    </style>
   </head>
   <body>
-    <h1>Workshop Materials</h1>
-    <h2>Scripts</h2>
-    <ul>
-      <li>
-        Maximize heading
-        <textarea>
-(() => {
-  let h1 = document.querySelector('h1');
-  h1.style.display = 'block';
-  h1.style.position = 'fixed';
-  h1.style.top = '50vh';
-  h1.style.left = '50vw';
-  h1.style.transform = 'translate(-50%, -50%)';
-  h1.style.fontSize = '10rem';
-  h1.style.color = 'mediumvioletred';
-})();
-        </textarea>
-      </li>
-      <li>
-        Follow mouse
-        <textarea>
-function followMouse(element) {
-  element.style.display = 'block';
-  element.style.position = 'fixed';
-  let { width, height } = element.getBoundingClientRect();
-  window.addEventListener('mousemove', ({ clientX, clientY }) => {
-    element.style.left = (clientX - width / 2) + 'px';
-    element.style.top = (clientY - height / 2) + 'px';
-  });
-}
-        </textarea>
-      </li>
-    </ul>
+    <header>
+      <h1>Button Design Workshop</h1>
+    </header>
+    <main>
+      <ul>
+        <li>
+          <a href="https://www.google.com/imgres?imgurl=https%3A%2F%2Fstarecat.com%2Fcontent%2Fwp-content%2Fuploads%2Fdownload-buttons-you-must-choose-wisely-indiana-jones.jpg&imgrefurl=https%3A%2F%2Fwww.reddit.com%2Fr%2FShowerthoughts%2Fcomments%2F9piizn%2Fthe_selecting_the_true_holy_grail_scene_in%2F&docid=ab4gRN8UFJODfM&tbnid=gjqjASrtl8mdHM%3A&vet=10ahUKEwj7msP0iMLeAhXTfMAKHX8eCmQQMwhFKAYwBg..i&w=735&h=491&client=ubuntu&bih=748&biw=1440&q=indiana%20jones%20find%20right%20download%20button%20comic&ved=0ahUKEwj7msP0iMLeAhXTfMAKHX8eCmQQMwhFKAYwBg&iact=mrc&uact=8">Indiana Jones Holy Grail Scene</a>
+        </li>
+        <li>
+          <a href="http://www.trackybirthday.com/">trackybirthday.com</a>
+        </li>
+        <li>
+          <img src="https://pics.me.me/choosing-right-download-button-mematic-net-which-one-inspired-by-post-23823167.png" />
+        </li>
+        <li>
+          <img src="https://external-preview.redd.it/9C8Dwq2DY9Jjqy-MZBYdBKnDwDQIo60OMae9ya64tL8.jpg?auto=webp&s=50d88eadcd6f6bdec1ca0941bfda2058d4c1d11c" />
+        </li>
+      </ul>
+    </main>
     <footer>&copy; 2018 Emanuel Tannert, Wolfgang Schöffel</footer>
-    <script>
-      function get(url, callback) {
-        var request = new XMLHttpRequest();
-        request.open('GET', url, true);
-        request.onload = function() {
-          if (request.status !== 200) {
-            callback(request.status);
-          } else {
-            callback(null, request.responseText);
-          }
-        };
-        request.onerror = function() {
-          callback(1);
-        };
-        request.send();
-      }
-      function tryLoadNew() {
-        var isCanceled = false;
-        get('https://em4nl.github.io/simdd-2018-workshop/', function(error, html) {
-          if (!isCanceled && !error) {
-            var scriptsList = document.querySelector('ul');
-            var oldScripts = scriptsList.querySelectorAll('li');
-            var i;
-            for (i = 0; i < oldScripts.length; i++) {
-              oldScripts[i].parentNode.removeChild(oldScripts[i]);
-            }
-            var tmp = document.createElement('DIV');
-            tmp.innerHTML = html;
-            var newScripts = tmp.querySelectorAll('li');
-            for (i = 0; i < newScripts.length; i++) {
-              scriptsList.appendChild(newScripts[i]);
-            }
-          }
-        });
-        return function() {
-          isCanceled = true;
-        };
-      }
-      var cancelLastTry = function() {};
-      function refresh() {
-        cancelLastTry();
-        cancelLastTry = tryLoadNew();
-        setTimeout(refresh, 20000);
-      }
-      setTimeout(refresh, 20000);
-    </script>
   </body>
 </html>
